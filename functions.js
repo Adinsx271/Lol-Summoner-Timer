@@ -19,12 +19,12 @@ function startCountdown(seconds, displayElement, button) {
 
 function startTimerTopSum1() {
     var element = document.getElementById("TopTimer1")
-    var button = document.getElementById("startTop2")
+    var button = document.getElementById("startTop1")
     startCountdown(timers[0][0],element, button)
 }
 function startTimerTopSum2() {
     var element = document.getElementById("TopTimer2")
-    var button = document.getElementById("startTop1")
+    var button = document.getElementById("startTop2")
     startCountdown(timers[0][1],element, button)
 }
 function startTimerJglSum1() {
