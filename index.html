@@ -1,0 +1,186 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+
+    <script language="javascript" type="text/javascript" src="p5.min.js"></script>
+    <script language="javascript" type="text/javascript" src="main.js"></script>
+    <script language="javascript" type="text/javascript" src="functions.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="headline">
+            <h1>Headline</h1>
+        </div>
+        <div class="row">
+            <div class="column">
+                <img src="img/lanes/pictureToplane.png" alt="Picture Toplane" style="width:75px">
+             </div>
+            <div class="column">
+                <input id="startTop1" type="image" alt="TopSum1" onclick="startTimerTopSum1()">
+                <p id="TopTimer1">Summoner Up!</p>
+            </div>
+            <div class="column">
+                <input id="startTop2" type="image" alt="TopSum2" onclick="startTimerTopSum2()">
+                <p id="TopTimer2">Summoner Up!</p>
+            </div>
+            <div class="column">
+                <label>Cosmic Insight?</label>
+                <input id="showCosmicTop" type="checkbox" disabled="true" style="width:20px">
+                <label><br>Boots of Lucidity?</label>
+                <input id="showLucidityTop" type="checkbox" disabled="true" style="width:20px; top:50px">
+            </div>
+            <div class="column button">
+                <button onclick="configSums(0)">Configure <br/>Toplane</button>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="column">
+                <img src="img/lanes/pictureJGL.png" alt="Picture JGL" style="width:75px">
+            </div>
+            <div class="column">
+                <input id="startJgl1" type="image" alt="JglSum1" onclick="startTimerJglSum1()">
+                <p id="JglTimer1">Summoner Up!</p>
+            </div>
+            <div class="column">
+                <input id="startJgl2" type="image" alt="JglSum2" onclick="startTimerJglSum2()">
+                <p id="JglTimer2">Summoner Up!</p>
+            </div>
+            <div class="column">
+                <label>Cosmic Insight?</label>
+                <input id="showCosmicJgl" type="checkbox" disabled="true" style="width:20px">
+                <label><br>Boots of Lucidity?</label>
+                <input id="showLucidityJgl" type="checkbox" disabled="true" style="width:20px; top:50px">
+            </div>
+            <div class="column button">
+                <button onclick="configSums(1)">Configure <br/>Jungle</button>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="column">
+                <img src="img/lanes/pictureMid.png" alt="Picture Mid" style="width:75px">
+            </div>
+            <div class="column">
+                <input id="startMid1" type="image" alt="MidSum1" onclick="startTimerMidSum1()">
+                <p id="MidTimer1">Summoner Up!</p>
+            </div>
+            <div class="column">
+                <input id="startMid2" type="image" alt="MidSum2" onclick="startTimerMidSum2()">
+                <p id="MidTimer2">Summoner Up!</p>
+            </div>
+            <div class="column">
+                <label>Cosmic Insight?</label>
+                <input id="showCosmicMid" type="checkbox" disabled="true" style="width:20px">
+                <label><br>Boots of Lucidity?</label>
+                <input id="showLucidityMid" type="checkbox" disabled="true" style="width:20px; top:50px">
+            </div>
+            <div class="column button">
+                <button onclick="configSums(2)">Configure <br/>Midlane</button>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="column">
+                <img src="img/lanes/pictureADC.png" alt="Picture ADC" style="width:75px">
+            </div>
+            <div class="column">
+                <input id="startAdc1" type="image" alt="AdcSum1" onclick="startTimerAdcSum1()">
+                <p id="AdcTimer1">Summoner Up!</p>
+            </div>
+            <div class="column">
+                <input id="startAdc2" type="image" alt="AdcSum2" onclick="startTimerAdcSum2()">
+                <p id="AdcTimer2">Summoner Up!</p>
+            </div>
+            <div class="column">
+                <label>Cosmic Insight?</label>
+                <input id="showCosmicAdc" type="checkbox" disabled="true" style="width:20px">
+                <label><br>Boots of Lucidity?</label>
+                <input id="showLucidityAdc" type="checkbox" disabled="true" style="width:20px; top:50px">
+            </div>
+            <div class="column button">
+                <button onclick="configSums(3)">Configure <br/>Adc</button>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="column">
+                <img src="img/lanes/pictureSup.png" alt="Picture Sup" style="width:75px">
+            </div>
+            <div class="column">
+                <input id="startSup1" type="image" alt="SupSum1" onclick="startTimerSupSum1()">
+                <p id="SupTimer1">Summoner Up!</p>
+            </div>
+            <div class="column">
+                <input id="startSup2" type="image" alt="SupSum2" onclick="startTimerSupSum2()">
+                <p id="SupTimer2">Summoner Up!</p>
+            </div>
+            <div class="column">
+                <label>Cosmic Insight?</label>
+                <input id="showCosmicSup" type="checkbox" disabled="true" style="width:20px">
+                <label><br>Boots of Lucidity?</label>
+                <input id="showLuciditySup" type="checkbox" disabled="true" style="width:20px; top:50px">
+            </div>
+            <div class="column button">
+                <button onclick="configSums(4)">Configure <br/>Supporter</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal for configuration -->
+    <div id="configModal" class="modal">
+        <div class="modal-content">
+            <span onclick="closeModalOnX()" class="close">&times;</span>
+            <h2>Configure Lane</h2>
+            <form id="configForm">
+                <label for="Sum1Imput">Summoner 1:</label>
+                <select id="selectSum1" name="selectSum1">
+                    <option value="Barrier">Barrier</option>
+                    <option value="Exhaust">Exhaust</option>
+                    <option value="Flash">Flash</option>
+                    <option value="Ghost">Ghost</option>
+                    <option value="Heal">Heal</option>
+                    <option value="Ignite">Ignite</option>
+                    <option value="Smite">Smite</option>
+                    <option value="Teleport">Teleport</option>
+                    <option value="unleashedTeleport">unleashed Teleport</option>
+                    <option value="cleanse">Cleanse</option>
+                </select>
+                <label for="Sum2Imput">Summoner 2:</label>
+                <select id="selectSum2" name="selectSum2">
+                    <option value="Barrier">Barrier</option>
+                    <option value="Exhaust">Exhaust</option>
+                    <option value="Flash">Flash</option>
+                    <option value="Ghost">Ghost</option>
+                    <option value="Heal">Heal</option>
+                    <option value="Ignite">Ignite</option>
+                    <option value="Smite">Smite</option>
+                    <option value="Teleport">Teleport</option>
+                    <option value="unleashedTeleport">unleashed Teleport</option>
+                    <option value="cleanse">Cleanse</option>
+                </select>
+                <label for="cosmicInsightFlag">Cosmic Insight?:</label>
+                <input type="checkbox" id="cosmicInsightFlag" name="cosmicInsightFlag" style="width: 20px;">
+                <label for="lucidityBootsFlag">Boots of Lucidity?:</label>
+                <input type="checkbox" id="lucidityBootsFlag" name="lucidityBootsFlag" style="width: 20px;">
+                <button onclick="applySummonerChanges()" type="button" style="position: relative; left: 50px">Start</button>
+            </form>
+        </div>
+    </div>
+
+
+
+
+</body>
+
+</html>
